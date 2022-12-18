@@ -1,8 +1,5 @@
 import Footer from "@/components/Footer"
 import { Home } from "@/pages/Home"
-import { Login } from "@/pages/Login"
-import { Private } from "@/pages/Private"
-import { Register } from "@/pages/Register"
 import { PrivateRoutes, PublicRoutes } from "@/routes"
 import { NextUIProvider, globalCss } from "@nextui-org/react"
 import { lazy, Suspense } from "react"
@@ -24,6 +21,10 @@ const globalStyles = globalCss({
     textDecoration: "none",
   },
 })
+
+const Login = lazy(() => import("./pages/Login/Login"))
+const Register = lazy(() => import("./pages/Register/Register"))
+const Private = lazy(() => import("./pages/Private/Private"))
 
 function App() {
   globalStyles()
