@@ -9,7 +9,7 @@ Aplicación que muestra una lista de productos traídos de una base de datos med
 ![App Screenshot](https://res.cloudinary.com/dg84upfsp/image/upload/v1671401089/addintech/Screenshot_2_szg8ud.jpg)
 
 
-## 📝 Caracteristicas
+## 📝 Características
 
 - Responsive design
 - Panel Admin CRUD
@@ -24,7 +24,7 @@ Aplicación que muestra una lista de productos traídos de una base de datos med
 
 ## ⚙️ Para empezar
 
-### Dependencies
+### Dependencias
 
 * React Js / React-Dom : 18.2.0
 * NextUI 1.0.0-beta.10
