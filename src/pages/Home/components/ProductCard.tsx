@@ -1,16 +1,12 @@
 import { ProductI } from "@/types"
 import { currencyFormatter } from "@/utilities"
-import { Card, Col, Text, Badge, Row, Modal, Image } from "@nextui-org/react"
+import { Badge, Button, Card, Col, Image, Modal, Row, Text } from "@nextui-org/react"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 
 const ProductCard = ({ product }: { product: ProductI }) => {
   const [visible, setVisible] = useState(false)
   const handler = () => setVisible(true)
-  const closeHandler = () => {
-    setVisible(false)
-    console.log("closed")
-  }
+  const closeHandler = () => setVisible(false)
   return (
     <>
       <Card
@@ -53,7 +49,19 @@ const ProductCard = ({ product }: { product: ProductI }) => {
       </Card>
       <Modal closeButton noPadding open={visible} onClose={closeHandler}>
         <Modal.Header
-          css={{ bg: "$accents9", position: "absolute", top: 0, right: 0, left: 0, height: 60, zIndex: "$1" }}>
+          css={{
+            bg: "$accents9",
+            position: "absolute",
+            top: 0,
+            right: 0,
+            left: 0,
+            height: 60,
+            zIndex: "$1",
+            display: "flex",
+            justifyContent: "space-between",
+            pl: 10,
+            pr: 10,
+          }}>
           <Text
             css={{
               textGradient: "45deg, $yellow600 -20%, $red600 100%",
@@ -62,6 +70,9 @@ const ProductCard = ({ product }: { product: ProductI }) => {
             weight='extrabold'>
             {product.title}
           </Text>
+          <Button color='error' bordered rounded size='xs' auto onPress={closeHandler}>
+            Close
+          </Button>
         </Modal.Header>
         <Modal.Body css={{ width: "100%", p: 0 }}>
           <Image showSkeleton src={product.image} objectFit='cover' width='100%' height={440} />

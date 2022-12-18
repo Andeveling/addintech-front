@@ -37,7 +37,6 @@ const EditProductsForm = ({ product }: { product: ProductI }) => {
 
     updateProduct({ _id: product._id, product: Object.fromEntries(formData) })
       .unwrap()
-      .then((res) => console.log(res))
       .then(() => reset())
       .then(() => closeHandler())
   })

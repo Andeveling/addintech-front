@@ -31,10 +31,8 @@ const TableProducts = () => {
                     <td style={{ display: "flex", justifyContent: "center" }}>
                       <Row justify='center' align='center' css={{ maxWidth: 80 }}>
                         <Col css={{ d: "flex" }}>
-                          <Tooltip content='Details'>
-                            <IconButton onClick={() => console.log("View user", product._id)}>
-                              <EyeIcon size={20} fill='#979797' />
-                            </IconButton>
+                          <Tooltip content={product.description}>
+                            <EyeIcon size={20} fill='#979797' />
                           </Tooltip>
                         </Col>
                         <EditProductsForm product={product} />
