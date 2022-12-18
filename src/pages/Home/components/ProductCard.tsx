@@ -51,18 +51,42 @@ const ProductCard = ({ product }: { product: ProductI }) => {
           </Row>
         </Card.Footer>
       </Card>
-      <Modal noPadding open={visible} onClose={closeHandler}>
-        <Modal.Header css={{ position: "absolute", zIndex: "$1", top: 5, right: 8 }}>
-          <Text color='#363449'></Text>
+      <Modal closeButton noPadding open={visible} onClose={closeHandler}>
+        <Modal.Header
+          css={{ bg: "$accents9", position: "absolute", top: 0, right: 0, left: 0, height: 60, zIndex: "$1" }}>
+          <Text
+            css={{
+              textGradient: "45deg, $yellow600 -20%, $red600 100%",
+            }}
+            size='$3xl'
+            weight='extrabold'>
+            {product.title}
+          </Text>
         </Modal.Header>
-        <Modal.Body>
-          <Image
-            showSkeleton
-            src='https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
-            width={400}
-            height={490}
-          />
+        <Modal.Body css={{ width: "100%", p: 0 }}>
+          <Image showSkeleton src={product.image} objectFit='cover' width='100%' height={440} />
         </Modal.Body>
+        <Modal.Footer
+          css={{
+            bg: "$accents9",
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            left: 0,
+            minHeight: 60,
+            zIndex: "$1",
+            display: "flex",
+            justifyContent: "space-between",
+            pl: 10,
+            pr: 10,
+          }}>
+          <Text size='xl' color='$white'>
+            {product.description}
+          </Text>
+          <Text size='xl' color='$white'>
+            {currencyFormatter(product.price)}
+          </Text>
+        </Modal.Footer>
       </Modal>
     </>
   )

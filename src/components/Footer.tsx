@@ -1,11 +1,12 @@
-import { Container, Text, Grid, Spacer, Divider } from "@nextui-org/react"
+import { Divider, Grid, Spacer, Text } from "@nextui-org/react"
+import { Box } from "./Box"
 
 export default function Footer() {
   return (
     <>
       <Spacer y={1} />
       <Divider y={1} />
-      <Container fluid css={{ py: 20, bg: "$accents9" }}>
+      <Box style={{ background: "#111" }}>
         <Grid.Container justify='center' gap={2}>
           <Grid direction='column' xs={12} sm={6}>
             <Text h4 css={{ lineHeight: "$9xl", color: "$warningLightContrast" }}>
@@ -23,7 +24,7 @@ export default function Footer() {
             </Text>
           </Grid>
         </Grid.Container>
-      </Container>
+      </Box>
     </>
   )
 }
