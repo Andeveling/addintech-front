@@ -1,5 +1,5 @@
 
-# CRUD Fullstack MERN stack
+# CRUD Fullstack MERN stack - frontend
 
 Aplicación que muestra una lista de productos traídos de una base de datos mediante una API rest para presentar productos ofrecidos a modo de catálogo. Esta aplicación usa librerías como ReactJS, NextUI y ReduxToolkit. También cuenta con un panel CRUD para gestionar los productos que se ofrecen.
 
