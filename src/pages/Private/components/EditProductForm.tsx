@@ -33,11 +33,11 @@ const EditProductsForm = ({ product }: { product: ProductI }) => {
       for (let filo of data.image) {
         formData.append("image", filo)
       }
-      updateProduct(formData)
-        .unwrap()
-        .then(() => reset())
-        .then(() => closeHandler())
     }
+    updateProduct(formData)
+      .unwrap()
+      .then(() => reset())
+      .then(() => closeHandler())
   })
 
   return (
@@ -115,7 +115,6 @@ const EditProductsForm = ({ product }: { product: ProductI }) => {
             </Grid>
             <Grid xs={12}>
               <Input
-                id='image-edit'
                 type='file'
                 label='Image'
                 size='xl'
