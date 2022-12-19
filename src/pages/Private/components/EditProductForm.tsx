@@ -34,8 +34,10 @@ const EditProductsForm = ({ product }: { product: ProductI }) => {
         formData.append("image", filo)
       }
     }
-
-    updateProduct({ _id: product._id, product: Object.fromEntries(formData) })
+    /* 
+Object.fromEntries()
+*/
+    updateProduct({ _id: product._id, product: formData })
       .unwrap()
       .then(() => reset())
       .then(() => closeHandler())

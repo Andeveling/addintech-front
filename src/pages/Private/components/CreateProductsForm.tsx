@@ -33,7 +33,6 @@ const CreateProductsForm = () => {
       }
       createProduct(formData)
         .unwrap()
-
         .then(() => reset())
         .then(() => closeHandler())
     }
