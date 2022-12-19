@@ -35,7 +35,13 @@ const ProductCard = ({ product }: { product: ProductI }) => {
           </Col>
         </Card.Header>
         <Card.Body css={{ p: 0 }}>
-          <Card.Image src={baseUrl + product.image} objectFit='cover' width='100%' height={140} alt={product.title} />
+          <Card.Image
+            src={baseUrl + "/" + product.image}
+            objectFit='cover'
+            width='100%'
+            height={140}
+            alt={product.title}
+          />
         </Card.Body>
         <Card.Footer css={{ justifyItems: "flex-start", bg: "$gray900" }}>
           <Row wrap='wrap' justify='space-between' align='center'>
@@ -76,7 +82,7 @@ const ProductCard = ({ product }: { product: ProductI }) => {
           </Button>
         </Modal.Header>
         <Modal.Body css={{ width: "100%", p: 0 }}>
-          <Image showSkeleton src={baseUrl + product.image} objectFit='cover' width='100%' height={440} />
+          <Image showSkeleton src={baseUrl + "/" + product.image} objectFit='cover' width='100%' height={440} />
         </Modal.Body>
         <Modal.Footer
           css={{
