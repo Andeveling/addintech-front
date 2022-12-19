@@ -3,7 +3,6 @@ import { Button, Checkbox, Text, Container, Grid, Row, Spacer, Table, Modal, Inp
 import { useContext, useState } from "react"
 import TableProducts from "./components/TableProducts"
 import ModalProducts from "./components/CreateProductsForm"
-import ProductsContext from "@/context/ProductsContext"
 
 const Private = () => {
   return (
