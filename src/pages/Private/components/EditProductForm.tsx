@@ -29,12 +29,15 @@ const EditProductsForm = ({ product }: { product: ProductI }) => {
     data.title && formData.append("title", data.title)
     data.price && formData.append("price", data.price.toString())
     data.description && formData.append("description", data.description)
-    data.image && formData.append("image", data.image[0])
-
-    updateProduct({ _id: product._id, product: Object.fromEntries(formData) })
-      .unwrap()
-      .then(() => reset())
-      .then(() => closeHandler())
+    if (data.image) {
+      for (let filo of data.image) {
+        formData.append("image", filo)
+      }
+      updateProduct(formData)
+        .unwrap()
+        .then(() => reset())
+        .then(() => closeHandler())
+    }
   })
 
   return (
