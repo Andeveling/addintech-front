@@ -2,7 +2,7 @@ import { useAuth } from "@/hooks"
 import { useUpdateProductMutation } from "@/redux"
 import { CreateProductI, ProductI } from "@/types"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { Button, Col, Grid, Input, Modal, Text, Textarea, Tooltip } from "@nextui-org/react"
+import { Button, Col, Grid, Input, Loading, Modal, Text, Textarea, Tooltip } from "@nextui-org/react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { EditIcon } from "./Icons/EditIcon"
@@ -14,7 +14,7 @@ const EditProductsForm = ({ product }: { product: ProductI }) => {
   const [visible, setVisible] = useState(false)
   const handler = () => setVisible(true)
   const closeHandler = () => setVisible(false)
-  const [updateProduct] = useUpdateProductMutation()
+  const [updateProduct, { isLoading }] = useUpdateProductMutation()
 
   const {
     register,
@@ -134,7 +134,7 @@ const EditProductsForm = ({ product }: { product: ProductI }) => {
             Close
           </Button>
           <Button auto color='primary' type='submit'>
-            Update
+            {isLoading ? <Loading /> : <span>Update</span>}
           </Button>
         </Modal.Footer>
       </Modal>

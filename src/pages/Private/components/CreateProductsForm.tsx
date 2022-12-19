@@ -1,6 +1,6 @@
 import { CreateProductI } from "@/types"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { Button, Grid, Input, Modal, Spacer, Text, Textarea } from "@nextui-org/react"
+import { Button, Grid, Input, Loading, Modal, Spacer, Text, Textarea } from "@nextui-org/react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { CreateProductSchema } from "./ProductSchema"
@@ -12,7 +12,7 @@ const CreateProductsForm = () => {
   const [visible, setVisible] = useState(false)
   const handler = () => setVisible(true)
   const closeHandler = () => setVisible(false)
-  const [createProduct, { data }] = useCreateProductMutation()
+  const [createProduct, { data, isLoading }] = useCreateProductMutation()
 
   const {
     register,
@@ -119,7 +119,7 @@ const CreateProductsForm = () => {
             Close
           </Button>
           <Button auto color='primary' type='submit'>
-            Create
+            {isLoading ? <Loading /> : <span>Create</span>}
           </Button>
         </Modal.Footer>
       </Modal>
