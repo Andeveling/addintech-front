@@ -2,6 +2,7 @@ import { ProductI } from "@/types"
 import { currencyFormatter } from "@/utilities"
 import { Badge, Button, Card, Col, Image, Modal, Row, Text } from "@nextui-org/react"
 import { useState } from "react"
+import { dev } from "@/redux"
 
 const ProductCard = ({ product }: { product: ProductI }) => {
   const [visible, setVisible] = useState(false)
@@ -34,7 +35,17 @@ const ProductCard = ({ product }: { product: ProductI }) => {
           </Col>
         </Card.Header>
         <Card.Body css={{ p: 0 }}>
-          <Card.Image src={product.image} objectFit='cover' width='100%' height={140} alt={product.title} />
+          <Card.Image
+            src={
+              dev
+                ? product.image
+                : product.image.replace("http://localhost:10000", "https://addintechfruits.onrender.com")
+            }
+            objectFit='cover'
+            width='100%'
+            height={140}
+            alt={product.title}
+          />
         </Card.Body>
         <Card.Footer css={{ justifyItems: "flex-start", bg: "$gray900" }}>
           <Row wrap='wrap' justify='space-between' align='center'>
