@@ -29,11 +29,7 @@ const EditProductsForm = ({ product }: { product: ProductI }) => {
     data.title && formData.append("title", data.title)
     data.price && formData.append("price", data.price.toString())
     data.description && formData.append("description", data.description)
-    if (data.image) {
-      for (let filo of data.image) {
-        formData.append("image", filo)
-      }
-    }
+    data.image && formData.append("image", data.image[0])
 
     updateProduct({ _id: product._id, product: Object.fromEntries(formData) })
       .unwrap()
