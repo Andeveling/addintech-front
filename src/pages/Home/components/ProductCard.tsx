@@ -8,6 +8,7 @@ const ProductCard = ({ product }: { product: ProductI }) => {
   const [visible, setVisible] = useState(false)
   const handler = () => setVisible(true)
   const closeHandler = () => setVisible(false)
+
   return (
     <>
       <Card

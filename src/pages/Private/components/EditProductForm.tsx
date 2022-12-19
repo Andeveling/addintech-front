@@ -20,21 +20,27 @@ const EditProductsForm = ({ product }: { product: ProductI }) => {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm<Partial<CreateProductI>>({
     resolver: yupResolver(UpdateProductSchema),
   })
+  /* console.log(watch("image")) */
   const onSubmit = handleSubmit(async (data) => {
     const formData = new FormData()
+    formData.append("_id", product._id)
     data.title && formData.append("title", data.title)
     data.price && formData.append("price", data.price.toString())
     data.description && formData.append("description", data.description)
+
     if (data.image) {
       for (let filo of data.image) {
         formData.append("image", filo)
       }
+      /* console.log(Object.fromEntries(formData)) */
     }
-    updateProduct(Object.fromEntries(formData))
+
+    updateProduct({ _id: product._id, data: formData })
       .unwrap()
       .then(() => reset())
       .then(() => closeHandler())
