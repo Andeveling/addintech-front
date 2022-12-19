@@ -15,8 +15,8 @@ export const ProductsProvider = ({ children }: PropsWithChildren) => {
   const [products, setProducts] = useState<ProductI[]>([])
 
   useEffect(() => {
-    if (data && isSuccess) setProducts(data)
-  }, [data])
+    if (data) setProducts(data)
+  }, [data, products])
 
   const values = {
     products,
