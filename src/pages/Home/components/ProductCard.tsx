@@ -86,7 +86,17 @@ const ProductCard = ({ product }: { product: ProductI }) => {
           </Button>
         </Modal.Header>
         <Modal.Body css={{ width: "100%", p: 0 }}>
-          <Image showSkeleton src={product.image} objectFit='cover' width='100%' height={440} />
+          <Image
+            showSkeleton
+            src={
+              dev
+                ? product.image
+                : product.image.replace("http://localhost:10000", "https://addintechfruits.onrender.com")
+            }
+            objectFit='cover'
+            width='100%'
+            height={440}
+          />
         </Modal.Body>
         <Modal.Footer
           css={{

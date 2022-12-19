@@ -6,7 +6,6 @@ import { lazy, Suspense } from "react"
 import { Provider } from "react-redux"
 import { BrowserRouter, Route } from "react-router-dom"
 import NavbarApp from "./components/NavbarApp"
-import { ProductsProvider } from "./context/ProductsContext"
 import { AuthGuard } from "./guard"
 import { store } from "./redux"
 import { addInTechTheme } from "./theme/theme"
@@ -32,20 +31,18 @@ function App() {
     <BrowserRouter>
       <Suspense fallback={<Loader />}>
         <Provider store={store}>
-          <ProductsProvider>
-            <NextUIProvider theme={addInTechTheme}>
-              <NavbarApp />
-              <RoutesWithNoFound>
-                <Route path={PublicRoutes.HOME} element={<Home />} />
-                <Route path={PublicRoutes.LOGIN} element={<Login />} />
-                <Route path={PublicRoutes.REGISTER} element={<Register />} />
-                <Route element={<AuthGuard privateValidation={true} />}>
-                  <Route path={PrivateRoutes.ADMIN} element={<Private />} />
-                </Route>
-              </RoutesWithNoFound>
-              <Footer />
-            </NextUIProvider>
-          </ProductsProvider>
+          <NextUIProvider theme={addInTechTheme}>
+            <NavbarApp />
+            <RoutesWithNoFound>
+              <Route path={PublicRoutes.HOME} element={<Home />} />
+              <Route path={PublicRoutes.LOGIN} element={<Login />} />
+              <Route path={PublicRoutes.REGISTER} element={<Register />} />
+              <Route element={<AuthGuard privateValidation={true} />}>
+                <Route path={PrivateRoutes.ADMIN} element={<Private />} />
+              </Route>
+            </RoutesWithNoFound>
+            <Footer />
+          </NextUIProvider>
         </Provider>
       </Suspense>
     </BrowserRouter>

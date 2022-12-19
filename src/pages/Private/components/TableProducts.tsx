@@ -1,14 +1,28 @@
-import ProductsContext from "@/context/ProductsContext"
+import { useGetAllProductQuery } from "@/redux"
 import { currencyFormatter } from "@/utilities"
-import { Card, Col, Row, Tooltip, Text } from "@nextui-org/react"
-import { useContext } from "react"
+import { Card, Col, Grid, Loading, Row, Text, Tooltip } from "@nextui-org/react"
 import DeleteProduct from "./DeleteProduct"
 import EditProductsForm from "./EditProductForm"
 import { EyeIcon } from "./Icons/EyeIcon"
-import { IconButton } from "./Icons/IconButton"
 
 const TableProducts = () => {
-  const { products } = useContext(ProductsContext)
+  const { data: products, isLoading, error } = useGetAllProductQuery()
+  let content = null
+
+  if (isLoading)
+    content = (
+      <Grid>
+        <Loading />
+      </Grid>
+    )
+
+  if (error)
+    content = (
+      <Grid>
+        <Text>{JSON.stringify(error)}</Text>
+      </Grid>
+    )
+
   return (
     <>
       <Card css={{ p: 2, mt: 10, pl: 10 }}>

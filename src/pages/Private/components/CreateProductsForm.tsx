@@ -118,7 +118,7 @@ const CreateProductsForm = () => {
           <Button auto flat color='error' onPress={closeHandler}>
             Close
           </Button>
-          <Button auto color='primary' type='submit'>
+          <Button auto color='primary' type='submit' disabled={isLoading}>
             {isLoading ? <Loading /> : <span>Create</span>}
           </Button>
         </Modal.Footer>

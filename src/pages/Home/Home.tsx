@@ -1,7 +1,5 @@
 import LayoutContent from "@/components/LayoutContent"
-import ProductsContext from "@/context/ProductsContext"
-import { Container, Grid, Spacer, Text } from "@nextui-org/react"
-import { useContext } from "react"
+import { Container, Spacer, Text } from "@nextui-org/react"
 import ProductList from "./components/ProductList"
 
 const Home = () => {
