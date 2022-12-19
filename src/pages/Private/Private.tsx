@@ -1,8 +1,7 @@
 import LayoutContent from "@/components/LayoutContent"
-import { Button, Checkbox, Text, Container, Grid, Row, Spacer, Table, Modal, Input } from "@nextui-org/react"
-import { useContext, useState } from "react"
-import TableProducts from "./components/TableProducts"
+import { Container, Grid, Spacer } from "@nextui-org/react"
 import ModalProducts from "./components/CreateProductsForm"
+import TableProducts from "./components/TableProducts"
 
 const Private = () => {
   return (

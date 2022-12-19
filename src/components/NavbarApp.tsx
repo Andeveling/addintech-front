@@ -2,16 +2,18 @@ import { useAppDispatch, useAuth } from "@/hooks"
 import { resetCredentials } from "@/redux/authSlice"
 import { PrivateRoutes, PublicRoutes } from "@/routes"
 import { Button, Navbar, Text } from "@nextui-org/react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Layout } from "./Layout"
 
 const NavbarApp = () => {
   const user = useAuth()
   const location = useLocation()
+  const navigate = useNavigate()
 
   const dispatch = useAppDispatch()
   const logout = () => {
     dispatch(resetCredentials())
+    navigate(PublicRoutes.HOME)
   }
 
   return (
