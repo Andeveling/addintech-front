@@ -3,14 +3,7 @@ export interface UserI {
   password: string
 }
 
-export interface LoginRequestI {
-  email: string
-  password: string
-}
-
-export interface RegisterResponseI extends UserI {
-  passwordConfirm: string
-}
+export interface LoginRequestI extends UserI {}
 
 export interface UserResponseI {
   id: string
